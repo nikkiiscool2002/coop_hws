@@ -4,7 +4,7 @@
 
 char *to_roman_numeral(unsigned int number){
     unsigned int t = number;
-    char *result = malloc(20 * sizeof(char));
+    char *result = calloc(20 , sizeof(char));
     unsigned int i = 0;
     while ((t > 0) && (i < 20)){
         if (t >= 1000){result[i] = 'M'; i++; t-=1000;}
@@ -20,12 +20,9 @@ char *to_roman_numeral(unsigned int number){
         else if (t >= 5){result[i] = 'V'; i++; t-=5;}
         else if (t >= 4){result[i] = 'I'; result[++i] = 'V'; i++; t -= 4;}
         else if (t >= 1){result[i] = 'I'; i++; t-=1;}
-        // if (t > 1000){result[i] = 'M'; i++; t-=1000}
-        // if (t > 1000){result[i] = 'M'; i++; t-=1000}
-        // if (t > 1000){result[i] = 'M'; i++; t-=1000}
-        printf("%u\n", t);
-
-
+        printf("%u\n , %s", t, result);
     }
+
+
     return result;
 }
